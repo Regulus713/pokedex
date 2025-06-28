@@ -1,0 +1,211 @@
+body {
+    background: rgb(85, 144, 189);
+  background: linear-gradient(
+    90deg,
+    rgba(182, 216, 242, 1) 0%,
+    rgba(108, 183, 240, 1) 54%,
+    rgba(85, 144, 189, 1) 82%
+
+    /* background: rgb(165, 148, 125);
+  background: linear-gradient(
+    90deg,
+    rgb(85, 189, 111,1) 0%,
+    rgb(108, 240, 196,1) 54%,
+    rgb(216, 249, 222,1) 82% */
+    
+  );
+    color: black;
+    margin: 0;
+    font-family: rubik;
+}
+
+.container {
+    padding: 40px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 54px;
+}
+
+#pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding-inline-start: 0;
+}
+
+.card {
+    position: relative;
+    text-align: center;
+    border: 1px solid #000;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    background:rgb(229, 229, 229);
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+    cursor:pointer;
+}
+
+.card-title {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 32px;
+    font-weight: normal;
+}
+.card-subtitle {
+    margin-top: 5px;
+    color: #666;
+    font-weight: lighter;
+}
+
+.card-image {
+    height: 180px;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.popup {
+    position: fixed;      /* Fixed positioning to keep it over other content */
+    top: 50%;             /* Center vertically */
+    left: 50%;            /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset the position by half of its width and height */
+    width: 500px;         /* Width of the popup */
+    height: 500px;        /* Height of the popup */
+    background-color: white; /* Background color */
+    z-index: 1000;        /* Make sure it's on top of other content */
+    border-radius: 10px;  /* Optional: adds rounded corners to the popup */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+    display: flex;        /* Use flexbox to arrange children */
+    flex-direction: column; /* Stack children vertically */
+    overflow: hidden;     /* Prevents content from spilling out */
+}
+
+.popup .card {
+    flex-grow: 1;         /* Allow the card to fill the space inside the popup */
+    display: flex;        /* Enable flexbox for internal card layout */
+    flex-direction: column; /* Stack card contents vertically */
+    align-items: center;  /* Center-align the card's contents */
+    justify-content: center; /* Center content vertically */
+    padding: 20px;        /* Add some padding around the content */
+}
+
+#closeBtn {
+    align-self: flex-end; /* Align close button to the right of the popup */
+    padding: 10px 20px;   /* Padding for the close button */
+    cursor: pointer;      /* Change cursor to pointer when hovering over the button */
+    border: none;         /* No border */
+    background: #f44336;  /* Red background color */
+    color: white;         /* White text color */
+    font-weight: bold;    /* Bold font */
+    border-radius: 5px;   /* Rounded corners for the button */
+}
+
+.card.caught {
+    background-color: #4CAF50; /* Green background */
+    position: relative;
+}
+
+.card.caught .caught-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dim the image */
+    color: white;
+    text-align: center;
+    opacity: 0.8; /* The text overlay's opacity */
+    pointer-events: none; /* Allows clicking through the overlay */
+}
+
+
+#loadMore {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #e15e00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+header, footer {
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    max-width: 1200px; /* or your preferred max width */
+    margin: auto;
+}
+
+.pokedex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.load-more-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.catch-release-btn {
+    background-color:#007bff;
+    color:white;
+    font-family: 'Tahoma', sans-serif; /* Setting the font to Tahoma */
+    padding: 10px 20px; /* Adding padding to make the button bigger */
+    font-size: 16px; /* Increasing the font size */
+    border: none; /* Removing any default border */
+    border-radius: 5px; /* Optional: Adding a slight border-radius for rounded corners */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    transition: background-color 0.3s; /* Smooth transition for background color change on hover */
+}
+
+
+.release-button {
+    background-color: red; /* Red background for 'Release' */
+    color: #fff; /* White text for better contrast */
+}
+
+.catch-button:hover {
+    background-color: #0000ff; /* Darker blue on hover */
+}
+
+.release-button:hover {
+    background-color: #ff0000; /* Darker red on hover */
+}
